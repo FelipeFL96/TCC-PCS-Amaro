@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using BestFitAPIService.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +27,26 @@ namespace BestFit.Controllers
     
         }
 
-        // POST api/values
+        // POST api/value
         [HttpPost]
-        public async Task Post([FromBody] string value)
+        public async Task<HttpResponseMessage> Post([FromBody] string value)
         {
-            
+            HttpStatusCode httpStatus;
 
+            try
+            {
+                Console.WriteLine(value);
+
+                await poseProcessor.ProcessImages().ConfigureAwait(false);
+
+                httpStatus = HttpStatusCode.OK;
+            }
+            catch
+            {
+                httpStatus = HttpStatusCode.InternalServerError;
+            }
+
+            return new HttpResponseMessage(httpStatus);
         }
     }
 }
