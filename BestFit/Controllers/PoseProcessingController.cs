@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using BestFitAPIService.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BestFit.Controllers
@@ -7,6 +9,13 @@ namespace BestFit.Controllers
     [ApiController]
     public class PoseProcessingController : ControllerBase
     {
+        private readonly OpenPoseWrapper poseProcessor;
+
+        public PoseProcessingController()
+        {
+            poseProcessor = new OpenPoseWrapper();
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -17,8 +26,10 @@ namespace BestFit.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] string value)
         {
+            
+
         }
     }
 }

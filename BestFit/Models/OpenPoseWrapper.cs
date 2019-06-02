@@ -7,6 +7,8 @@ namespace BestFitAPIService.Model
 {
     public class OpenPoseWrapper
     {
+        private const string executablePath = "C:\Users\danie\Desktop\OpenPose\openpose\build\x64\Release\OpenPoseDemo.exe"
+
         public OpenPoseWrapper()
         {
 
