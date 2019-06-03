@@ -7,8 +7,10 @@ namespace PoseMeasurer
         [STAThread]
         static void Main(string[] args)
         {
-            PoseResultsObserver observer = new PoseResultsObserver();
-            observer.Start();
+            using (PoseResultsObserver observer = new PoseResultsObserver())
+            {
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace PoseMeasurer
 {
-    public class PoseResultsObserver
+    public class PoseResultsObserver : IDisposable
     {
         #region Fields
 
@@ -18,9 +18,12 @@ namespace PoseMeasurer
             fsWatcher = new FileSystemWatcher
             {
                 Path = PATH,
-                EnableRaisingEvents = true,
                 IncludeSubdirectories = true
             };
+            fsWatcher.Created += (sender, args) => NewOpenPoseOutputs();
+            fsWatcher.Changed += (sender, args) => NewOpenPoseOutputs();
+            fsWatcher.Renamed += (sender, args) => NewOpenPoseOutputs();
+            fsWatcher.EnableRaisingEvents = true;
         }
 
         private void NewOpenPoseOutputs()
@@ -28,22 +31,10 @@ namespace PoseMeasurer
             Console.WriteLine("New outputs!");
         }
 
-        public void Start()
+        public void Dispose()
         {
-            try
-            {
-                fsWatcher.BeginInit();
-
-                while(true)
-                {
-                    fsWatcher.WaitForChanged(WatcherChangeTypes.All);
-                    NewOpenPoseOutputs();
-                }
-            }
-            catch
-            {
-
-            }
+            fsWatcher.Dispose();
         }
+
     }
 }
