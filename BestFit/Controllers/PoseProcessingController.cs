@@ -29,14 +29,12 @@ namespace BestFit.Controllers
 
         // POST api/value
         [HttpPost]
-        public async Task<HttpResponseMessage> Post([FromBody] string value)
+        public async Task<HttpResponseMessage> Post()
         {
             HttpStatusCode httpStatus;
 
             try
             {
-                Console.WriteLine(value);
-
                 await poseProcessor.ProcessImages().ConfigureAwait(false);
 
                 httpStatus = HttpStatusCode.OK;

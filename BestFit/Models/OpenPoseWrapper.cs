@@ -11,7 +11,8 @@ namespace BestFitAPIService.Model
     {
         #region FIELDS
 
-        private const string PATH = @"C:\Users\danie\Desktop\OpenPose\openpose\build\x64\Release\OpenPoseDemo.exe";
+        private const string PATH = @"D:\openpose\binaries\build\x64\Release\OpenPoseDemo.exe";
+        private const string WORKING_DIR = @"D:\openpose\binaries";
         private const string ARGUMENTS = @"--image_dir D:\openpose\inputs --write_json D:\openpose\outputs";
 
         private readonly Process openposeProcess;
@@ -26,6 +27,7 @@ namespace BestFitAPIService.Model
                 {
                     FileName = PATH,
                     Arguments = ARGUMENTS,
+                    WorkingDirectory = WORKING_DIR,
                     UseShellExecute = false,
                     CreateNoWindow = true
                 },
