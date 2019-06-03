@@ -12,3 +12,9 @@ C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFitAPISe
 C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFitAPIService.RazorTargetAssemblyInfo.cache
 C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFitAPIService.dll
 C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFitAPIService.pdb
+C:\Users\danie\source\repos\BestFit\BestFit\bin\netcoreapp2.1\BestFitAPIService.deps.json
+C:\Users\danie\source\repos\BestFit\BestFit\bin\netcoreapp2.1\BestFitAPIService.runtimeconfig.json
+C:\Users\danie\source\repos\BestFit\BestFit\bin\netcoreapp2.1\BestFitAPIService.runtimeconfig.dev.json
+C:\Users\danie\source\repos\BestFit\BestFit\bin\netcoreapp2.1\BestFitAPIService.dll
+C:\Users\danie\source\repos\BestFit\BestFit\bin\netcoreapp2.1\BestFitAPIService.pdb
+C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFitAPIService.csprojAssemblyReference.cache
