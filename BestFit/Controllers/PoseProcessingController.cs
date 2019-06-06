@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BestFitAPIService.Model;
+using BestFitAPIService.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BestFit.Controllers
@@ -12,30 +11,34 @@ namespace BestFit.Controllers
     [ApiController]
     public class PoseProcessingController : ControllerBase
     {
-        private readonly OpenPoseWrapper poseProcessor;
+        #region Fields
+
+        private const string CONTENT_TYPE = @"application/octet-stream";
+
+        private readonly PoseDataStore poseStore;
+
+        #endregion
+
+        #region Constructor
 
         public PoseProcessingController()
         {
-            poseProcessor = new OpenPoseWrapper();
+            poseStore = new PoseDataStore();
         }
 
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2", "value3"};
-    
-        }
+        #endregion
 
-        // POST api/value
+        #region Http Methods
+
         [HttpPost]
         public async Task<HttpResponseMessage> Post()
         {
             HttpStatusCode httpStatus;
-
             try
             {
-                await poseProcessor.ProcessImages().ConfigureAwait(false);
+                int bufferSize = (int)Request.ContentLength;
+                byte[] data = await ReadByteArrayBody(bufferSize);
+                await poseStore.StorePoseData(data).ConfigureAwait(false);
 
                 httpStatus = HttpStatusCode.OK;
             }
@@ -46,5 +49,21 @@ namespace BestFit.Controllers
 
             return new HttpResponseMessage(httpStatus);
         }
+
+        #endregion
+
+        #region Methods
+
+        private async Task<byte[]> ReadByteArrayBody(int bufferSize)
+        {
+            using (MemoryStream ms = new MemoryStream(bufferSize))
+            {
+                await Request.Body.CopyToAsync(ms);
+                return ms.ToArray();
+            }
+        }
+
+        #endregion
+
     }
 }

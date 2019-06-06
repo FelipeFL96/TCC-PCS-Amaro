@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace BestFitAPIService.Model
+namespace PoseMeasurer
 {
-    public class OpenPoseWrapper
+    public class OpenPoseAccess
     {
-        #region FIELDS
+        #region Fields
 
         private const string PATH = @"D:\openpose\binaries\build\x64\Release\OpenPoseDemo.exe";
         private const string WORKING_DIR = @"D:\openpose\binaries";
-        private const string ARGUMENTS = @"--image_dir D:\openpose\inputs --write_json D:\openpose\outputs";
+        private const string ARGUMENTS = @"--image_dir D:\openpose\openpose_inputs --write_json D:\openpose\openpose_outputs";
 
         private readonly Process openposeProcess;
 
         #endregion
 
-        public OpenPoseWrapper()
+        #region Constructor
+
+        public OpenPoseAccess()
         {
             openposeProcess = new Process
             {
@@ -34,9 +32,15 @@ namespace BestFitAPIService.Model
             };
         }
 
-        public async Task ProcessImages()
+        #endregion
+
+        #region Methods
+
+        public async Task ProcessImage(byte[] data)
         {
             await Task.Run(() => openposeProcess.Start()).ConfigureAwait(false);
         }
+
+        #endregion
     }
 }

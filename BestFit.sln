@@ -10,6 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseMeasurer", "PoseMeasure
 		{70A78444-AB13-4923-944E-6593F6C99882} = {70A78444-AB13-4923-944E-6593F6C99882}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestFitClient", "BestFitClient\BestFitClient.csproj", "{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{631FDEB0-07DD-4AA1-BF57-4207E95466D3} = {631FDEB0-07DD-4AA1-BF57-4207E95466D3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pose", "Pose\Pose.csproj", "{631FDEB0-07DD-4AA1-BF57-4207E95466D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +31,14 @@ Global
 		{76705ABE-5EAC-4C73-9B56-6F37581629B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76705ABE-5EAC-4C73-9B56-6F37581629B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76705ABE-5EAC-4C73-9B56-6F37581629B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
