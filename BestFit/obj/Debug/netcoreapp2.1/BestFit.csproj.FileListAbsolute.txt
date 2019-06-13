@@ -1,3 +1,0 @@
-C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFit.csproj.CoreCompileInputs.cache
-C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFit.AssemblyInfoInputs.cache
-C:\Users\danie\source\repos\BestFit\BestFit\obj\Debug\netcoreapp2.1\BestFit.AssemblyInfo.cs
