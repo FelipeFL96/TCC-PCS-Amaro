@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BestFitClient.Client
 {
-    public class PoseClient
+    public class ImageClient
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace BestFitClient.Client
 
         #region Constructor
 
-        public PoseClient()
+        public ImageClient()
         {
             client = new HttpClient();
         }
@@ -24,7 +24,7 @@ namespace BestFitClient.Client
 
         #region Methods
 
-        public async Task PublishPoseImage(byte[] data)
+        public async Task PublishImage(byte[] data)
         {
             try
             {

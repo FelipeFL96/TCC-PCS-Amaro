@@ -1,0 +1,40 @@
+﻿using System;
+using System.IO;
+
+namespace Pose.Measurer
+{
+    public class ProcessedImageObserver : IDisposable
+    {
+        #region Fields
+
+        private const string INPUTS_PATH = @"D:\openpose\openpose_outputs";
+
+        private readonly FileSystemWatcher fsWatcher;
+        private readonly PoseMeasurer measurer;
+
+        #endregion
+
+        public ProcessedImageObserver()
+        {
+            measurer = new PoseMeasurer();
+            fsWatcher = new FileSystemWatcher
+            {
+                Path = INPUTS_PATH,
+                IncludeSubdirectories = true
+            };
+            fsWatcher.Created += NewImageData;
+            fsWatcher.EnableRaisingEvents = true;
+        }
+
+        private void NewImageData(object sender, FileSystemEventArgs args)
+        {
+            measurer.Measure(args.FullPath);
+        }
+
+        public void Dispose()
+        {
+            fsWatcher.Dispose();
+        }
+
+    }
+}

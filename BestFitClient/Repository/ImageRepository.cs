@@ -1,43 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 
-namespace BestFitClient.Models
+namespace BestFitClient.Repository
 {
-    class PoseRepository
+    class ImageRepository
     {
         #region Fields
 
         private const string POSE_DIRECTORY = @"D:\openpose\poses";
-        private readonly CancellationTokenSource tokenSource;
-        private readonly CancellationToken token;
 
         #endregion
 
         #region Constructor
 
-        public PoseRepository()
-        {
-            tokenSource = new CancellationTokenSource();
-            token = tokenSource.Token;
-        }
+        public ImageRepository() { }
 
         #endregion
 
-        public List<byte[]> GetPoseData()
+        public List<byte[]> GetImageData()
         {
             List<byte[]> folderData = new List<byte[]>();
             string[] files = Directory.GetFiles(POSE_DIRECTORY);
             foreach(string file in files)
             {
-                byte[] data = GetPoseAsync(file);
+                byte[] data = GetImageAsync(file);
                 folderData.Add(data);
             }
 
             return folderData;
         }
 
-        private byte[] GetPoseAsync(string file)
+        private byte[] GetImageAsync(string file)
         {
             var openFile = File.Open(file, FileMode.Open);
             int fileLength = (int)openFile.Length;

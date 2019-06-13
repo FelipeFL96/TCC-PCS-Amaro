@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Pose.Measurer
+namespace Pose.Observer
 {
     public class Program
     {
         [STAThread]
         static void Main(string[] args)
         {
-            using (ProcessedImageObserver observer = new ProcessedImageObserver())
+            using (ReceivedImageObserver observer = new ReceivedImageObserver())
             {
                 Console.ReadKey();
             }

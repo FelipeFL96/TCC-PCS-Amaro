@@ -5,17 +5,14 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestFitAPIService", "BestFit\BestFitAPIService.csproj", "{70A78444-AB13-4923-944E-6593F6C99882}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseMeasurer", "PoseMeasurer\PoseMeasurer.csproj", "{76705ABE-5EAC-4C73-9B56-6F37581629B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoseMeasurer", "PoseMeasurer\PoseMeasurer.csproj", "{76705ABE-5EAC-4C73-9B56-6F37581629B9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{70A78444-AB13-4923-944E-6593F6C99882} = {70A78444-AB13-4923-944E-6593F6C99882}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestFitClient", "BestFitClient\BestFitClient.csproj", "{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{631FDEB0-07DD-4AA1-BF57-4207E95466D3} = {631FDEB0-07DD-4AA1-BF57-4207E95466D3}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestFitClient", "BestFitClient\BestFitClient.csproj", "{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pose", "Pose\Pose.csproj", "{631FDEB0-07DD-4AA1-BF57-4207E95466D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseObserver", "PoseObserver\PoseObserver.csproj", "{FB4153E7-B8B9-4B10-8E2C-AA758EFEA34E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +32,10 @@ Global
 		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{307FC6BF-23C0-4AA8-8972-7AB19226CB1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{631FDEB0-07DD-4AA1-BF57-4207E95466D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4153E7-B8B9-4B10-8E2C-AA758EFEA34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4153E7-B8B9-4B10-8E2C-AA758EFEA34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4153E7-B8B9-4B10-8E2C-AA758EFEA34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4153E7-B8B9-4B10-8E2C-AA758EFEA34E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

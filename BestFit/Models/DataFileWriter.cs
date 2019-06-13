@@ -9,7 +9,7 @@ namespace BestFitAPIService.Models
         #region Fields
 
         private const string POSE_INPUT_DIR = @"D:\openpose\openpose_inputs";
-        private CancellationTokenSource tokenSource;
+        private CancellationTokenSource tokenSource = new CancellationTokenSource();
 
         #endregion
 
@@ -26,7 +26,6 @@ namespace BestFitAPIService.Models
 
         public async Task WriteDataToFileAsync(byte[] data, string filename)
         {
-            tokenSource = new CancellationTokenSource();
             await File.WriteAllBytesAsync(string.Format(@"{0}\{1}.jpg", POSE_INPUT_DIR, filename), data, tokenSource.Token).ConfigureAwait(false);
         }
 

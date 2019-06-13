@@ -1,4 +1,4 @@
-﻿using BestFitClient.Models;
+﻿using BestFitClient.Repository;
 using BestFitClient.Client;
 using System.Threading.Tasks;
 using System;
@@ -9,17 +9,17 @@ namespace BestFitClient
     {
         static void Main(string[] args)
         {
-            PoseRepository poseRepo = new PoseRepository();
-            PoseClient client = new PoseClient();
-            foreach(byte[] data in poseRepo.GetPoseData())
+            ImageRepository poseRepo = new ImageRepository();
+            ImageClient client = new ImageClient();
+            foreach(byte[] data in poseRepo.GetImageData())
             {
                 try
                 {
-                    Task.Run(() => client.PublishPoseImage(data)).Wait();
+                    Task.Run(() => client.PublishImage(data)).Wait();
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(string.Format("Message: {0}\nStackTrace: {1}", e.Message, e.StackTrace));
+                    Console.WriteLine("Message: {0}\nStackTrace: {1}", e.Message, e.StackTrace);
                 }
             }
         }

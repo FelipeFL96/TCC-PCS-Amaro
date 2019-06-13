@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace PoseMeasurer
+namespace Pose.Observer
 {
     public class OpenPoseAccess
     {

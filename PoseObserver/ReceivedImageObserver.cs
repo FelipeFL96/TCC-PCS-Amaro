@@ -2,9 +2,9 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace PoseMeasurer
+namespace Pose.Observer
 {
-    public class PoseDataObserver : IDisposable
+    public class ReceivedImageObserver : IDisposable
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace PoseMeasurer
 
         #endregion
 
-        public PoseDataObserver()
+        public ReceivedImageObserver()
         {
             openpose = new OpenPoseAccess();
             fsWatcher = new FileSystemWatcher
@@ -23,16 +23,16 @@ namespace PoseMeasurer
                 Path = INPUTS_PATH,
                 IncludeSubdirectories = true
             };
-            fsWatcher.Created += (sender, args) => NewPoseData();
+            fsWatcher.Created += (sender, args) => NewImageReceived();
             fsWatcher.EnableRaisingEvents = true;
         }
 
-        private void NewPoseData()
+        private void NewImageReceived()
         {
-            Task.Run(() => ProcessData()).Wait();
+            Task.Run(() => ProcessImage()).Wait();
         }
 
-        private async Task ProcessData()
+        private async Task ProcessImage()
         {
             await openpose.ProcessImage().ConfigureAwait(false);
         }
