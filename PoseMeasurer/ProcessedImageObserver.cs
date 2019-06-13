@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Pose.Measurer
 {
@@ -28,7 +29,7 @@ namespace Pose.Measurer
 
         private void NewImageData(object sender, FileSystemEventArgs args)
         {
-            measurer.Measure(args.FullPath);
+            Task.Run(() => measurer.Measure(args.FullPath)).Wait();
         }
 
         public void Dispose()

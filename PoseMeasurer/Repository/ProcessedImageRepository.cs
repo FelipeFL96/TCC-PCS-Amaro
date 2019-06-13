@@ -1,35 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace Pose.Measurer.Repository
 {
     public class ProcessedImageRepository
     {
-        private const string POSE_DIRECTORY = @"D:\openpose\openpose_output";
-
         public ProcessedImageRepository() { }
 
-        public List<byte[]> GetImageData()
+        public async Task<string> GetPoseDataAsync(string filePath)
         {
-            List<byte[]> folderData = new List<byte[]>();
-            string[] files = Directory.GetFiles(POSE_DIRECTORY);
-            foreach (string file in files)
+            string fileData;
+            using (StreamReader sr = new StreamReader(filePath))
             {
-                byte[] data = GetImageAsync(file);
-                folderData.Add(data);
+                fileData = await sr.ReadToEndAsync().ConfigureAwait(false);
             }
-
-            return folderData;
-        }
-
-        private byte[] GetImageAsync(string file)
-        {
-            var openFile = File.Open(file, FileMode.Open);
-            int fileLength = (int)openFile.Length;
-            byte[] fileData = new byte[fileLength];
-            openFile.ReadAsync(fileData, 0, fileLength).Wait();
 
             return fileData;
         }
