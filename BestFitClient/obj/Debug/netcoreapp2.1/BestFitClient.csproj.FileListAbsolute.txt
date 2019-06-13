@@ -2,10 +2,10 @@ C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFi
 C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFitClient.runtimeconfig.json
 C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFitClient.runtimeconfig.dev.json
 C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFitClient.dll
-C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.csprojAssemblyReference.cache
+C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFitClient.pdb
 C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.csproj.CoreCompileInputs.cache
 C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.AssemblyInfoInputs.cache
 C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.AssemblyInfo.cs
-C:\Users\danie\source\repos\BestFit\BestFitClient\bin\Debug\netcoreapp2.1\BestFitClient.pdb
 C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.dll
 C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.pdb
+C:\Users\danie\source\repos\BestFit\BestFitClient\obj\Debug\netcoreapp2.1\BestFitClient.csprojAssemblyReference.cache

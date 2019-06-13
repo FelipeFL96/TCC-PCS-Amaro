@@ -36,7 +36,7 @@ namespace PoseMeasurer
 
         #region Methods
 
-        public async Task ProcessImage(byte[] data)
+        public async Task ProcessImage()
         {
             await Task.Run(() => openposeProcess.Start()).ConfigureAwait(false);
         }

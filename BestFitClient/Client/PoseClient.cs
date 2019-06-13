@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace BestFitClient.Client
@@ -7,7 +8,7 @@ namespace BestFitClient.Client
     {
         #region Fields
 
-        private const string ENDPOINT = @"https://localhost:52151/api/poseprocessing";
+        private const string ENDPOINT = @"http://localhost:5000/api/poseprocessing";
         private readonly HttpClient client;
 
         #endregion
@@ -17,9 +18,6 @@ namespace BestFitClient.Client
         public PoseClient()
         {
             client = new HttpClient();
-            client.DefaultRequestHeaders.ConnectionClose = true;
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Add("CONTENT_TYPE", "application/octet-stream");
         }
 
         #endregion
@@ -28,14 +26,21 @@ namespace BestFitClient.Client
 
         public async Task PublishPoseImage(byte[] data)
         {
-            HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Post, ENDPOINT)
+            try
             {
-                Content = new ByteArrayContent(data),
+                HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Post, ENDPOINT)
+                {
+                    Content = new ByteArrayContent(data),
 
-            };
-            httpRequest.Headers.Add("CONTENT-LENGTH", data.Length.ToString());
-            HttpResponseMessage httpResponse = await client.SendAsync(httpRequest);
-            httpResponse.EnsureSuccessStatusCode();
+                };
+                HttpResponseMessage httpResponse = await client.SendAsync(httpRequest);
+                httpResponse.EnsureSuccessStatusCode();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(string.Format("Message: {0}\nStackTrace: {1}", e.Message, e.StackTrace));
+            }
+            
         }
 
         #endregion

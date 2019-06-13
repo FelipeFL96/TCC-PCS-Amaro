@@ -3,15 +3,14 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:52151",
-      "sslPort": 44305
+      "applicationUrl": "http://localhost:5000"
+      //"sslPort": 0
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "api/poseprocessing",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -20,12 +19,11 @@
     },
     "BestFit": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/poseprocessing",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      "applicationUrl": "http://localhost:5000"
     },
     "Docker": {
       "commandName": "Docker",

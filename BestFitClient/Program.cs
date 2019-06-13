@@ -1,6 +1,7 @@
 ﻿using BestFitClient.Models;
 using BestFitClient.Client;
 using System.Threading.Tasks;
+using System;
 
 namespace BestFitClient
 {
@@ -12,7 +13,14 @@ namespace BestFitClient
             PoseClient client = new PoseClient();
             foreach(byte[] data in poseRepo.GetPoseData())
             {
-                Task.Run(() => client.PublishPoseImage(data)).ConfigureAwait(false);
+                try
+                {
+                    Task.Run(() => client.PublishPoseImage(data)).Wait();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(string.Format("Message: {0}\nStackTrace: {1}", e.Message, e.StackTrace));
+                }
             }
         }
     }

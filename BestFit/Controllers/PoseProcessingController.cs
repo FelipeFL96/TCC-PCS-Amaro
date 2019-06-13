@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,9 +14,7 @@ namespace BestFit.Controllers
     {
         #region Fields
 
-        private const string CONTENT_TYPE = @"application/octet-stream";
-
-        private readonly PoseDataStore poseStore;
+        private readonly DataFileWriter poseStore;
 
         #endregion
 
@@ -23,7 +22,7 @@ namespace BestFit.Controllers
 
         public PoseProcessingController()
         {
-            poseStore = new PoseDataStore();
+            poseStore = new DataFileWriter();
         }
 
         #endregion
@@ -36,14 +35,17 @@ namespace BestFit.Controllers
             HttpStatusCode httpStatus;
             try
             {
+                Guid id = Guid.NewGuid();
                 int bufferSize = (int)Request.ContentLength;
-                byte[] data = await ReadByteArrayBody(bufferSize);
-                await poseStore.StorePoseData(data).ConfigureAwait(false);
+                byte[] data = await ReadByteArrayBody(bufferSize).ConfigureAwait(false);
+                await poseStore.WriteDataToFileAsync(data, id.ToString()).ConfigureAwait(false);
 
                 httpStatus = HttpStatusCode.OK;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(string.Format("Message: {0}\nStackTrace{1}", e.Message, e.StackTrace));
+
                 httpStatus = HttpStatusCode.InternalServerError;
             }
 

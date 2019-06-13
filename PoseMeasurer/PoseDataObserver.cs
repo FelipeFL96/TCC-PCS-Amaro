@@ -11,14 +11,12 @@ namespace PoseMeasurer
         private const string INPUTS_PATH = @"D:\openpose\openpose_inputs";
 
         private readonly FileSystemWatcher fsWatcher;
-        private readonly PoseRepository poseRepo;
         private readonly OpenPoseAccess openpose;
 
         #endregion
 
         public PoseDataObserver()
         {
-            poseRepo = new PoseRepository();
             openpose = new OpenPoseAccess();
             fsWatcher = new FileSystemWatcher
             {
@@ -36,10 +34,7 @@ namespace PoseMeasurer
 
         private async Task ProcessData()
         {
-            foreach (byte[] data in poseRepo.GetPoseData())
-            {
-                await openpose.ProcessImage(data).ConfigureAwait(false);
-            }
+            await openpose.ProcessImage().ConfigureAwait(false);
         }
 
         public void Dispose()

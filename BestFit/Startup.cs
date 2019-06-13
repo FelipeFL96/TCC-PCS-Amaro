@@ -27,14 +27,16 @@ namespace BestFit.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMvc();
             }
             else
             {
                 app.UseHsts();
+                app.UseMvc();
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            //app.UseHttpsRedirection();
+            
         }
     }
 }
